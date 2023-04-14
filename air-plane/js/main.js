@@ -1,6 +1,7 @@
 import Background from './background/background'
 import ResourceLoader from './base/ResourceLoader'
 import Enemy from './enemy/enemy'
+import Player from './player/player'
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext('2d')
@@ -10,6 +11,9 @@ let bgList = []
 
 /** @type {Enemy[]} */
 let enemyList = []
+
+/** @type {Player} */
+let player = null
 
 export default class Main {
   constructor() {
@@ -26,7 +30,12 @@ export default class Main {
   init() {
     this.initBg()
     this.initEnemy()
+    this.initPlayer()
     this.animate()
+  }
+  /** 初始化玩家 */
+  initPlayer() {
+    player = new Player()
   }
   /** 初始化敌人 */
   initEnemy() {
@@ -54,7 +63,7 @@ export default class Main {
       }
     })
   }
-
+  /** 更新敌人 */
   updateEnemy() {
     enemyList.forEach((enemy) => {
       enemy.addY(5)
@@ -64,11 +73,16 @@ export default class Main {
       }
     })
   }
+  /** 更新玩家 */
+  updatePlayer() {
+    player.draw(ctx)
+  }
 
   animate() {
     ctx.clearRect(0, 0, GameGlobal.windowWidth, GameGlobal.windowHeight)
     this.updateBg()
     this.updateEnemy()
+    this.updatePlayer()
     requestAnimationFrame(this.animate.bind(this))
   }
 }

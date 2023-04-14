@@ -6,4 +6,5 @@ export const ImageKeys = {
   Bg: Symbol(),
   /** 敌人 */
   Enemy: Symbol(),
+  Hero: Symbol(),
 }

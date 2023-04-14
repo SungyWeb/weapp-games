@@ -4,6 +4,7 @@ const IMAGE_PATH = './images/'
 const IMAGES = [
   [ImageKeys.Bg, `${IMAGE_PATH}bg.jpg`],
   [ImageKeys.Enemy, `${IMAGE_PATH}enemy.png`],
+  [ImageKeys.Hero, `${IMAGE_PATH}hero.png`],
 ]
 let instance = null
 
