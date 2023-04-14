@@ -32,6 +32,9 @@ export default class Main {
   initEnemy() {
     const enemy = new Enemy()
     enemyList.push(enemy)
+    if (enemyList.length < 10) {
+      setTimeout(this.initEnemy.bind(this), 200)
+    }
   }
   /** 初始化背景 */
   initBg() {
@@ -53,12 +56,13 @@ export default class Main {
   }
 
   updateEnemy() {
-    const enemy = enemyList[0]
-    enemy.addY(5)
-    enemy.draw(ctx)
-    if (enemy.y >= GameGlobal.windowHeight) {
-      enemy.reset()
-    }
+    enemyList.forEach((enemy) => {
+      enemy.addY(5)
+      enemy.draw(ctx)
+      if (enemy.y >= GameGlobal.windowHeight) {
+        enemy.reset()
+      }
+    })
   }
 
   animate() {

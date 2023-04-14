@@ -1,8 +1,8 @@
 import ResourceLoader from '../base/ResourceLoader'
 import Sprite from '../base/Sprite'
 import { ImageKeys } from '../utils/constants'
-const EnemyWidth = 100
-const EnemyHeight = 100
+const EnemyWidth = 60
+const EnemyHeight = 60
 
 /** 敌人 */
 export default class Enemy extends Sprite {
