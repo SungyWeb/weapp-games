@@ -43,4 +43,22 @@ export default class Sprite {
   destory() {
     this.img = null
   }
+
+  /**
+   * 是否被触摸
+   * @param {TouchEvent} e
+   */
+  checkTouching(e) {
+    const { clientX, clientY } = e.touches[0]
+    let inRect = false
+    if (
+      clientX > this.x &&
+      clientX < this.x + this.width &&
+      clientY > this.y &&
+      clientY < this.y + this.height
+    ) {
+      inRect = true
+    }
+    return inRect
+  }
 }

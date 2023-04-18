@@ -5,6 +5,7 @@ const IMAGES = [
   [ImageKeys.Bg, `${IMAGE_PATH}bg.jpg`],
   [ImageKeys.Enemy, `${IMAGE_PATH}enemy.png`],
   [ImageKeys.Hero, `${IMAGE_PATH}hero.png`],
+  [ImageKeys.Bullet, `${IMAGE_PATH}bullet.png`],
 ]
 let instance = null
 
